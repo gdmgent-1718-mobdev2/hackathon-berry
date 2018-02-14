@@ -1,9 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 import * as firebase from 'firebase';
 import { initFirebase } from './utils/firebaseInit';
 
+//import screens
+import   HomeScreen   from './screens/Home';
+import   ProfileScreen   from './screens/Profile';
 
+//const met alle routes opgelijst
+const RootStack = StackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+    },
+    Profile: {
+      screen: ProfileScreen,
+    },
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
+//main app
 export default class App extends React.Component {
 
   constructor(){
@@ -27,11 +47,7 @@ export default class App extends React.Component {
   
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <RootStack> </RootStack>
     );
   }
 }
