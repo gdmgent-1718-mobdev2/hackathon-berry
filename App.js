@@ -8,9 +8,10 @@ import { StackNavigator } from 'react-navigation';
 //import { initFirebase } from './utils/firebaseInit';
 
 //import screens
-import   HomeScreen   from './screens/Home';
-import   ProfileScreen   from './screens/Profile';
-import   LoginScreen   from './screens/Login';
+import HomeScreen from './screens/Home';
+import ProfileScreen from './screens/Profile';
+import LoginScreen from './screens/Login';
+import PictureScreen from './screens/Picture';
 
 //const met alle routes opgelijst
 const RootStack = StackNavigator(
@@ -24,28 +25,31 @@ const RootStack = StackNavigator(
     Login: {
       screen: LoginScreen,
     },
+    Picture: {
+      screen: PictureScreen,
+    }
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Picture',
   }
 );
 
 //main app
 export default class App extends React.Component {
 
-  constructor(){
+  constructor() {
     super();
 
   }
 
-  componentWillMount(){
+  componentWillMount() {
 
   }
 
   componentDidMount() {
 
   }
-  
+
   render() {
     return (
       <RootStack> </RootStack>
