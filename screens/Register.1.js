@@ -1,8 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
-
-import style from '../utils/styles'
 
 //import * as firebase from 'firebase';
 //import { initFirebase } from '../utils/firebaseInit';
@@ -60,22 +58,16 @@ handleChangePassword(newPassword){
     return (
       <View style={style.container}>
         <Text style={style.title}>Registreren</Text>
-        <FormLabel labelStyle={style.sub_title}>Email</FormLabel>
-        <TextInput onChangeText={(text) => this.handleChangeEmail(text)} value={this.state.email} style={style.input_field}/>
-        <Text value={this.state.emailErrorMessage}></Text>
-        <FormLabel labelStyle={style.sub_title}>Paswoord</FormLabel>
-        <TextInput onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} style={[style.input_field, style.input_field_password]} />
-        <FormLabel labelStyle={style.sub_title}>bevestig paswoord</FormLabel>
-        <TextInput onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} style={[style.input_field, style.input_field_password]} />
+        <FormLabel>Email</FormLabel>
+        <TextInput style={styles.emailField} onChangeText={(text) => this.handleChangeEmail(text)} value={this.state.email} />
+        <FormLabel>Password</FormLabel>
+        <TextInput style={styles.passwordField} onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} />
         
-        <TouchableOpacity
-        style={style.button_green}
-        onPress={this.handleSubmit}
-        onPress={() => this.props.navigation.navigate('Home')}
-        >
-          <Text style={style.button_green_text}> Registreren </Text>
-        </TouchableOpacity>
-      </View>
+        <Button
+          title='Registreren'
+          onPress={ this.handleSubmit }
+        />
+        </View>
     );
   }
 };
