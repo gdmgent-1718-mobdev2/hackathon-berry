@@ -5,10 +5,13 @@ import { StackNavigator } from 'react-navigation';
 //momenteel import ik firebase apart per pagina
 
 //import screens
-import   HomeScreen   from './screens/Home';
-import   ProfileScreen   from './screens/Profile';
-import   LoginScreen   from './screens/Login';
-import   RegisterScreen from './screens/Register';
+import HomeScreen from './screens/Home';
+import ProfileScreen from './screens/Profile';
+import LoginScreen from './screens/Login';
+import RegisterScreen from './screens/Register';
+import PictureScreen from './screens/Picture';
+import TuinToevoegenScreen from './screens/TuinToevoegen';
+import VoegTuinToeScreen from './screens/VoegTuinToe';
 
 //const met alle routes opgelijst
 const RootStack = StackNavigator(
@@ -22,9 +25,18 @@ const RootStack = StackNavigator(
     Login: {
       screen: LoginScreen,
     },
+    Picture: {
+      screen: PictureScreen,
+    },
     Register: {
       screen: RegisterScreen,
     },
+    TuinToevoegen: {
+      screen: TuinToevoegenScreen,
+    },
+    VoegTuinToe: {
+      screen: VoegTuinToeScreen,
+    }
   },
   {
     initialRouteName: 'Home',
@@ -34,19 +46,19 @@ const RootStack = StackNavigator(
 //main app
 export default class App extends React.Component {
 
-  constructor(){
+  constructor() {
     super();
 
   }
 
-  componentWillMount(){
+  componentWillMount() {
 
   }
 
   componentDidMount() {
 
   }
-  
+
   render() {
     return (
       <RootStack> </RootStack>

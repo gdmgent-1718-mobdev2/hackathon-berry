@@ -1,29 +1,53 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Image, Text, View, FlatList } from 'react-native';
+import firebase from '../config/firebase';
 
+class FlatListItem extends React.Component{
+  render(){
+    console.log(this.props.imageUrl);
+    return(
+    <View>
+      <Image style={styles.image} source={this.props.imageUrl}/>
+    </View>
+    )
+  }
+}
+
+//main class
 export default class HomeScreen extends React.Component {
+  constructor(props) {
+
+    super(props);
+    this.state = {
+
+      foto: '',
+    }
+
+
+  }
+  static navigationOptions = {
+    title: 'Home',
+  };
+
+  //load data of gebruiker1 from database
+  componentWillMount() {
+    var database = firebase.database().ref('Gebruikers/gebruiker1/winkel');
+    console.log(database);
+    database.once('value', function (snapshot) {
+      foto = snapshot.val().foto;
+    });
+
+  }
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Text>Home Screen</Text>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        <Button
-          title="Go to Profile"
-          onPress={() => this.props.navigation.navigate('Profile')}
-        ></Button>
+        <FlatList
+          data={[{ key:'1', foto: require('../images/Landschap.jpg') }, { key:'2', foto: require('../images/Landschap.jpg') }]}
+          renderItem={({ item }) => {return(<FlatListItem imageUrl={item.foto} />);}}
+        />
 
-        <Button
-          title="Go to Login"
-          onPress={() => this.props.navigation.navigate('Login')}
-        ></Button>
-
-        <Button
-          title="Go to Register"
-          onPress={() => this.props.navigation.navigate('Register')}
-        ></Button>
-        </View>
+      </View>
     );
   }
 }
@@ -35,4 +59,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    width: 300,
+    height: 100,
+  }
 });

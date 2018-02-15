@@ -1,3 +1,5 @@
+import { Platform } from "react-native";
+
 module.exports = {
   container: {
     flex: 1,
@@ -34,7 +36,8 @@ module.exports = {
   },
 
   input_field: {
-    borderBottomWidth: 1,
+    
+    borderBottomWidth: Platform.OS === 'ios' ? 1 : 0,
     borderBottomColor: "#707070",
     backgroundColor: 'rgb(255, 255, 255)',
     height: 30,
