@@ -1,16 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
-import style from '../utils/styles';
 
 import * as firebase from 'firebase';
 import { initFirebase } from '../utils/firebaseInit';
 
-console.log(style);
-
 export default class LoginScreen extends React.Component {
 
-  
   constructor(){
     super();
     
@@ -61,21 +57,31 @@ handleChangePassword(newPassword){
   render() {
     
     return (
-      <View style={style.container}>
-        <Text style={style.app_title}>Tuinder</Text>
-        <Text style={style.title}>Log in</Text>
-        <FormLabel labelStyle={style.sub_title}>Email</FormLabel>
-        <TextInput onChangeText={(text) => this.handleChangeEmail(text)} value={this.state.email} style={style.input_field}/>
-        <FormLabel labelStyle={style.sub_title}>Password</FormLabel>
-        <TextInput onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} style={[style.input_field, style.input_field_password]} />
+      <View style={styles.container}>
+        <Text>Log in</Text>
+        <FormLabel>Email</FormLabel>
+        <TextInput onChangeText={(text) => this.handleChangeEmail(text)} value={this.state.email} />
+        <FormLabel>Password</FormLabel>
+        <TextInput onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} />
         
-        <TouchableOpacity
-         style={style.button_green}
-         onPress={this.handleSubmit}
-       >
-         <Text style={style.button_green_text}> Log in </Text>
-       </TouchableOpacity>
-      </View>
+        <Button
+          title='Submit Form'
+          onPress={ this.handleSubmit }
+        />
+        </View>
     );
   }
-};
+
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  TextInput: {
+
+  }
+});
