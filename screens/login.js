@@ -64,17 +64,17 @@ handleChangePassword(newPassword){
       <View style={style.container}>
         <Text style={style.app_title}>Tuinder</Text>
         <Text style={style.title}>Log in</Text>
-        <FormLabel style={style.sub_title}>Email</FormLabel>
+        <FormLabel labelStyle={style.sub_title}>Email</FormLabel>
         <TextInput onChangeText={(text) => this.handleChangeEmail(text)} value={this.state.email} style={style.input_field}/>
-        <FormLabel>Password</FormLabel>
-        <TextInput onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} />
+        <FormLabel labelStyle={style.sub_title}>Password</FormLabel>
+        <TextInput onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} style={[style.input_field, style.input_field_password]} />
         
         <TouchableOpacity
-          onPress={ this.handleSubmit }
-          style={style.button_green}
-        >
-          <Text> Login </Text>
-        </TouchableOpacity>
+         style={style.button_green}
+         onPress={this.handleSubmit}
+       >
+         <Text style={style.button_green_text}> Log in </Text>
+       </TouchableOpacity>
       </View>
     );
   }
