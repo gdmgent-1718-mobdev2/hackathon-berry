@@ -4,13 +4,11 @@ import { StackNavigator } from 'react-navigation';
 
 //momenteel import ik firebase apart per pagina
 
-//import * as firebase from 'firebase';
-//import { initFirebase } from './utils/firebaseInit';
-
 //import screens
 import   HomeScreen   from './screens/Home';
 import   ProfileScreen   from './screens/Profile';
 import   LoginScreen   from './screens/Login';
+import   RegisterScreen from './screens/Register';
 
 //const met alle routes opgelijst
 const RootStack = StackNavigator(
@@ -23,6 +21,9 @@ const RootStack = StackNavigator(
     },
     Login: {
       screen: LoginScreen,
+    },
+    Register: {
+      screen: RegisterScreen,
     },
   },
   {
