@@ -7,6 +7,7 @@ import { StackNavigator } from 'react-navigation';
 //import screens
 import HomeScreen from './screens/Home';
 import ProfileScreen from './screens/Profile';
+import OrdersScreen from './screens/Orders';
 import LoginScreen from './screens/Login';
 import RegisterScreen from './screens/Register';
 import PictureScreen from './screens/Picture';
@@ -21,6 +22,9 @@ const RootStack = StackNavigator(
     },
     Profile: {
       screen: ProfileScreen,
+    },
+    Orders: {
+      screen: OrdersScreen,
     },
     Login: {
       screen: LoginScreen,
@@ -39,7 +43,7 @@ const RootStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Profile',
   }
 );
 

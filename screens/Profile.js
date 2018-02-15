@@ -104,6 +104,10 @@ export default class ProfileScreen extends React.Component {
     });
   }
 
+  goToMijnBestellingen(){
+    this.props.navigation.navigate('Orders');
+  }
+
   render() {
     return (
       <View style={styles.profilePage}>
@@ -126,20 +130,20 @@ export default class ProfileScreen extends React.Component {
           </View>
 
           <View style={styles.profileMijnTuin}>
-          <Text style={style.sub_title}>Mijn Tuin</Text>
-          <Image style={styles.profileTuinPic} source={{uri: this.state.tuinPic.uri}}></Image>
+            <Text style={style.sub_title}>Mijn Tuin</Text>
+            <Image style={styles.profileTuinPic} source={{uri: this.state.tuinPic.uri}}></Image>
           </View>
 
           <View style={styles.profileMijnWinkel}>
-          <Text style={style.sub_title}>Mijn Winkel</Text>
-          <Image style={styles.profileWinkelPic} source={{uri: this.state.winkelPic.uri}}></Image>
+            <Text style={style.sub_title}>Mijn Winkel</Text>
+            <Image style={styles.profileWinkelPic} source={{uri: this.state.winkelPic.uri}}></Image>
           </View>
 
           <TouchableOpacity
-            style={[style.button_green, styles.mijnAankopen]}
-            onPress={this.goToMijnAankopen}
+            style={[style.button_green, styles.mijnBestellingen]}
+            onPress={this.goToMijnBestellingen}
             >
-            <Text style={style.button_green_text}> Mijn aankopen </Text>
+            <Text style={style.button_green_text}> Mijn Bestellingen </Text>
           </TouchableOpacity>
       </View>
     );
