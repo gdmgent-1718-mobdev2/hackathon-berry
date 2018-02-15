@@ -99,7 +99,7 @@ setStateFirebaseUid(){
 
         <TouchableOpacity
         style={[style.button_white, style.button_register]}
-        onPress={this.handleSubmit}
+        onPress={() => this.props.navigation.navigate('Register')}
         >
           <Text style={style.button_white_text}> Register </Text>
         </TouchableOpacity>
