@@ -13,6 +13,7 @@ import RegisterScreen from './screens/Register';
 import PictureScreen from './screens/Picture';
 import TuinToevoegenScreen from './screens/TuinToevoegen';
 import VoegTuinToeScreen from './screens/VoegTuinToe';
+import MijnTuinScreen from './screens/MijnTuin';
 
 //const met alle routes opgelijst
 const RootStack = StackNavigator(
@@ -40,10 +41,16 @@ const RootStack = StackNavigator(
     },
     VoegTuinToe: {
       screen: VoegTuinToeScreen,
+    },
+    MijnTuin: {
+      screen: MijnTuinScreen,
     }
+
   },
   {
-    initialRouteName: 'Profile',
+
+    initialRouteName: 'MijnTuin',
+
   }
 );
 
