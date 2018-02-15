@@ -1,12 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import * as firebase from 'firebase';
-import { initFirebase } from './utils/firebaseInit';
+
+//momenteel import ik firebase apart per pagina
+
+//import * as firebase from 'firebase';
+//import { initFirebase } from './utils/firebaseInit';
 
 //import screens
 import   HomeScreen   from './screens/Home';
 import   ProfileScreen   from './screens/Profile';
+import   LoginScreen   from './screens/Login';
 
 //const met alle routes opgelijst
 const RootStack = StackNavigator(
@@ -17,9 +21,12 @@ const RootStack = StackNavigator(
     Profile: {
       screen: ProfileScreen,
     },
+    Login: {
+      screen: LoginScreen,
+    },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Login',
   }
 );
 
@@ -32,13 +39,7 @@ export default class App extends React.Component {
   }
 
   componentWillMount(){
-    //firebase wordt hier ingeladen   
-    initFirebase(firebase);
 
-    //test genereren firebase key
-    var newPostKey = firebase.database().ref().child('testTable').push().key;
-    console.log(newPostKey);
-    
   }
 
   componentDidMount() {
