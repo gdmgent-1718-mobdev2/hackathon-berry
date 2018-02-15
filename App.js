@@ -39,7 +39,7 @@ const RootStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'VoegTuinToe',
+    initialRouteName: 'Home',
   }
 );
 
