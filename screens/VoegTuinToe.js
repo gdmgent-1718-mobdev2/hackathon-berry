@@ -13,9 +13,9 @@ export default class VoegTuinToeScreen extends React.Component {
             <View style={styles.container}>
                 <Text>Wilt u al een tuin toevoegen?</Text>
                 <Button title="Ja" onPress={() =>
-                    navigate('TuinToevoegen', { gebruikersid: 1 })}></Button>
+                    navigate('TuinToevoegen', { gebruikerId: 1 })}></Button>
                 <Button title="Nee" onPress={() =>
-                    navigate('Home', { gebruikersid: 1 })}></Button>
+                    navigate('Home', { gebruikerId: 1 })}></Button>
             </View>
         );
     }
