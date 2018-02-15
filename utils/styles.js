@@ -13,6 +13,11 @@ module.exports = {
   banner: {
     backgroundColor: 'rgb(255, 255, 255)',
   },
+
+  header: {
+    backgroundColor: 'Green',
+  },
+
   app_title: {
     fontSize: 35,
     color: 'green'
@@ -61,9 +66,21 @@ module.exports = {
 
   button_white: {
     borderRadius: 15,
+    borderWidth: 1,
     backgroundColor: 'white',
+    borderColor: 'green',
+    width: 200,
+    height: 25,
+  },
+
+  button_register: {
+    marginTop: 10
+  },
+
+  button_white_text:{
+    fontSize:20,
     color: 'green',
     textAlign: 'center'
-  } 
+  },
 };
 
