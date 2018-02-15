@@ -43,7 +43,11 @@ handleChangePassword(newPassword){
 
   handleSubmit(event) {
     console.log(this.state);
-    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+    .then(function(){
+      this.props.navigation.navigate('Home');
+    })
+    .catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
