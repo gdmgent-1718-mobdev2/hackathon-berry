@@ -5,17 +5,11 @@ import { StackNavigator } from 'react-navigation';
 //momenteel import ik firebase apart per pagina
 
 //import screens
-<<<<<<< HEAD
 import HomeScreen from './screens/Home';
 import ProfileScreen from './screens/Profile';
 import LoginScreen from './screens/Login';
+import RegisterScreen from './screens/Register';
 import PictureScreen from './screens/Picture';
-=======
-import   HomeScreen   from './screens/Home';
-import   ProfileScreen   from './screens/Profile';
-import   LoginScreen   from './screens/Login';
-import   RegisterScreen from './screens/Register';
->>>>>>> 348ef41ab64fe7c6147da4cd7dab6a048b38d584
 
 //const met alle routes opgelijst
 const RootStack = StackNavigator(
@@ -37,7 +31,7 @@ const RootStack = StackNavigator(
     },
   },
   {
-    initialRouteName: 'Picture',
+    initialRouteName: 'Login',
   }
 );
 

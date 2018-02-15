@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Image, View, Button } from "react-native";
 import firebase from 'firebase';
-import { initFirebase } from '../utils/firebaseInit';
+//import { initFirebase } from '../utils/firebaseInit';
 //import ImagePicker from 'react-native-imagepicker'
 
 const style = {
