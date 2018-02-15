@@ -41,12 +41,12 @@ export default class Header extends React.Component {
 
     //log out werk nog niet want header heeft geen toegang tot navigation
     //ToDo: log out function als aparte screen toevoegen
-    
+
     let self = this;
     firebase.auth().signOut().then(function() {
       // Sign-out successful.
       console.log('logged out successfully');
-      self.props.navigation.navigate('Register');
+      //self.props.navigation.navigate('Register');
     }, function(error) {
       // An error happened.
       console.log('error logging out');
@@ -58,13 +58,8 @@ export default class Header extends React.Component {
     
     return (
       <View style={styles.header}>
-          <LoggedInAs email={this.state.email}></LoggedInAs>
-
-        <Button
-          title='Log out'
-          onPress={ this.logOut }
-        />
-        </View>
+        <LoggedInAs email={this.state.email}></LoggedInAs>
+      </View>
     );
   }
 }

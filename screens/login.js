@@ -1,16 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
-import style from '../utils/styles';
-
-import * as firebase from 'firebase';
-import { initFirebase } from '../utils/firebaseInit';
-
-console.log(style);
+import Header from '../components/Header'
+//import * as firebase from 'firebase';
+//import { initFirebase } from '../utils/firebaseInit';
+import firebase from '../config/firebase';
 
 export default class LoginScreen extends React.Component {
 
-  
   constructor(){
     super();
     
@@ -23,59 +20,94 @@ export default class LoginScreen extends React.Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
     }
   }
 
   componentWillMount(){
-    //firebase wordt hier ingeladen   
-    initFirebase(firebase);
     
   }
 
 
 handleChangeEmail(newEmail){
-  //moet een geldig email adres zijn
   this.setState({email: newEmail})
 }
 
 handleChangePassword(newPassword){
-  //moet 6 tekens bevatten
   this.setState({password: newPassword})
 }
 
+setStateFirebaseUid(){
+  console.log(firebase.auth().currentUser.uid);
+}
+
   handleSubmit(event) {
+    console.log('sending user credentials');
+    console.log(firebase.auth());
     console.log(this.state);
-    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+    
+    //bind self to this so I can still call this in the firebase function
+    var self = this;
+
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    .then(function(){
+      console.log('login successfull');
+      self.setStateFirebaseUid();
+    })
+
+  
+    
+    .catch(function(error) {
       // Handle Errors here.
+      console.log('error');
+      
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorCode);
       console.log(errorMessage);
       // ...
     });
-    
-}
+  }
+  
 
 
   render() {
     
     return (
-      <View style={style.container}>
-        <Text style={style.app_title}>Tuinder</Text>
-        <Text style={style.title}>Log in</Text>
-        <FormLabel style={style.sub_title}>Email</FormLabel>
-        <TextInput onChangeText={(text) => this.handleChangeEmail(text)} value={this.state.email} style={style.input_field}/>
+      <View style={styles.container}>
+        <Header></Header>
+        <Text>Log in</Text>
+        <FormLabel>Email</FormLabel>
+        <TextInput style={styles.emailField} onChangeText={(text) => this.handleChangeEmail(text)} value={this.state.email} />
+        <Text value={this.state.emailErrorMessage}></Text>
         <FormLabel>Password</FormLabel>
-        <TextInput onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} />
+        <TextInput style={styles.passwordField} onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} />
         
-        <TouchableOpacity
+        <Button
+          title='Log in'
           onPress={ this.handleSubmit }
-          style={style.button_green}
-        >
-          <Text> Login </Text>
-        </TouchableOpacity>
-      </View>
+        />
+        </View>
     );
   }
-};
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'stretch',
+    justifyContent: 'flex-start',
+
+  },
+  emailField: {
+    width: 200,
+    height: 50,
+    backgroundColor: 'powderblue'
+  },
+  passwordField: {
+    width: 200,
+    height: 50,
+    backgroundColor: 'powderblue'
+  }
+});
