@@ -1,11 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
+
+import style from'../utils/styles';
 
 import Header from '../components/Header'
 //import * as firebase from 'firebase';
 //import { initFirebase } from '../utils/firebaseInit';
 import firebase from '../config/firebase';
+
+console.log(style);
 
 export default class LoginScreen extends React.Component {
 
@@ -75,40 +79,24 @@ setStateFirebaseUid(){
   render() {
     
     return (
-      <View style={styles.container}>
-        <Header></Header>
-        <Text>Log in</Text>
-        <FormLabel>Email</FormLabel>
-        <TextInput style={styles.emailField} onChangeText={(text) => this.handleChangeEmail(text)} value={this.state.email} />
+      <View style={style.container}>
+        <Header>
+          <Text style={style.app_title}>Tuinder</Text>
+        </Header>
+        <Text style={style.title}>Log in</Text>
+        <FormLabel labelStyle={style.sub_title}>Email</FormLabel>
+        <TextInput onChangeText={(text) => this.handleChangeEmail(text)} value={this.state.email} style={style.input_field}/>
         <Text value={this.state.emailErrorMessage}></Text>
-        <FormLabel>Password</FormLabel>
-        <TextInput style={styles.passwordField} onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} />
-        
-        <Button
-          title='Log in'
-          onPress={ this.handleSubmit }
-        />
-        </View>
+        <FormLabel labelStyle={style.sub_title}>Password</FormLabel>
+        <TextInput onChangeText={(text) => this.handleChangePassword(text)} value={this.state.password} style={[style.input_field, style.input_field_password]} />
+
+        <TouchableOpacity
+        style={style.button_green}
+        onPress={this.handleSubmit}
+        >
+        <Text style={style.button_green_text}> Log in </Text>
+        </TouchableOpacity>
+      </View>
     );
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'stretch',
-    justifyContent: 'flex-start',
-
-  },
-  emailField: {
-    width: 200,
-    height: 50,
-    backgroundColor: 'powderblue'
-  },
-  passwordField: {
-    width: 200,
-    height: 50,
-    backgroundColor: 'powderblue'
-  }
-});
+};

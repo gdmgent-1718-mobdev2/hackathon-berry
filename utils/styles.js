@@ -32,6 +32,12 @@ module.exports = {
     borderBottomWidth: 1,
     borderBottomColor: "#707070",
     backgroundColor: 'rgb(255, 255, 255)',
+    height: 30,
+    width: 200
+  },
+
+  input_field_password: {
+    marginBottom: 10
   },
 
   input_field_active: {
@@ -43,10 +49,14 @@ module.exports = {
   button_green: {
     borderRadius: 15,
     backgroundColor: 'green',
-    color: 'white',
-    textAlign: 'center',
     width: 200,
-    heigth: 25
+    height: 25,
+  },
+
+  button_green_text:{
+    fontSize:20,
+    color: 'white',
+    textAlign: 'center'
   },
 
   button_white: {
@@ -56,3 +66,4 @@ module.exports = {
     textAlign: 'center'
   } 
 };
+
