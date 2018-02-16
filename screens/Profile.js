@@ -19,6 +19,10 @@ export default class ProfileScreen extends React.Component {
     }
   }
 
+  static navigationOptions = {
+    title: 'Profiel',
+  };
+
   componentWillMount(){
     let self = this;
 
@@ -105,7 +109,8 @@ export default class ProfileScreen extends React.Component {
   }
 
   goToMijnBestellingen(){
-    this.props.navigation.navigate('Orders');
+    //this.props.navigation.navigate('Orders');
+    
   }
 
   render() {
@@ -141,7 +146,7 @@ export default class ProfileScreen extends React.Component {
 
           <TouchableOpacity
             style={[style.button_green, styles.mijnBestellingen]}
-            onPress={this.goToMijnBestellingen}
+            onPress={() => this.props.navigation.navigate('Orders')}
             >
             <Text style={style.button_green_text}> Mijn Bestellingen </Text>
           </TouchableOpacity>

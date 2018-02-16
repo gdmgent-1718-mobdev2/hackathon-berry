@@ -49,7 +49,7 @@ const RootStack = StackNavigator(
   },
   {
 
-    initialRouteName: 'MijnTuin',
+    initialRouteName: 'Profile',
 
   }
 );
