@@ -5,9 +5,7 @@ import style from'../utils/styles';
 
 export default class ProductItem extends React.Component {
     handle(){
-        if(this.props.actie==='Kopen'){
-            
-        }
+       
     }
 
     render() {

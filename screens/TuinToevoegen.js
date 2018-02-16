@@ -52,6 +52,7 @@ export default class TuinToevoegenScreen extends React.Component {
             console.log(errorMessage);
             // ...
         });*/
+        this.props.navigation.navigate('Home');
 
     }
 

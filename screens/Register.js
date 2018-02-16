@@ -45,7 +45,7 @@ handleChangePassword(newPassword){
     console.log(this.state);
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
     .then(function(){
-      this.props.navigation.navigate('Home');
+      this.props.navigation.navigate('VoegTuinToe');
     })
     .catch(function(error) {
       // Handle Errors here.

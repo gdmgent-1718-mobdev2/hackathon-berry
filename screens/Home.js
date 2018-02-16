@@ -1,13 +1,18 @@
 import React from 'react';
-import { StyleSheet, Image, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import firebase from '../config/firebase';
+import style from '../utils/styles';
 
 class FlatListItem extends React.Component {
+  
   render() {
     console.log(this.props.imageUrl);
+    
     return (
       <View>
-        <Image style={styles.image} source={{uri:this.props.imageUrl} } />
+        <Image style={styles.image} source={this.props.imageUrl} />
+    
+        
       </View>
     )
   }
@@ -46,7 +51,7 @@ export default class HomeScreen extends React.Component {
       .then((url) => {
         self.setState({ foto: url }
         );
-       
+
 
       })
       .catch(function (error) {
@@ -62,9 +67,15 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <FlatList
-          data={[{ key: '1', foto: this.state.foto }, { key: '2', foto: this.state.foto }]}
-          renderItem={({ item }) => { return (<FlatListItem imageUrl={item.foto} />); }}
+          data={[{ key: '1', foto: require('../images/Landschap.jpg') }, { key: '2', foto: require('../images/Landschap.jpg') }]}
+          renderItem={({ item }) => { return (<FlatListItem imageUrl={item.foto} navigation={navigate} />); }}
         />
+        <TouchableOpacity
+                    style={style.button_green}
+                    onPress={() =>
+                        navigate('Menu', { gebruikerId: 1 })}
+                ><Text style={style.button_green_text}>Menu </Text>
+                </TouchableOpacity>
 
       </View>
     );

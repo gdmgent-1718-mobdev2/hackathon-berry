@@ -58,6 +58,7 @@ export default class LoginScreen extends React.Component {
       .then(function () {
         console.log('login successfull');
         self.setStateFirebaseUid();
+        this.props.navigation.navigate('Home');
       })
 
 

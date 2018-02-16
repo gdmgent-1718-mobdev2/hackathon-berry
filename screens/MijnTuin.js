@@ -3,6 +3,7 @@ import { StyleSheet, Image, Text, View, FlatList, TouchableOpacity } from 'react
 import firebase from '../config/firebase';
 import ProductItem from './ProductItem';
 import style from '../utils/styles';
+import Header from '../components/Header';
 //main class
 export default class MijnTuinScreen extends React.Component {
     constructor(props) {
@@ -16,6 +17,8 @@ export default class MijnTuinScreen extends React.Component {
             product: {
                 foto: '', naam: '', prijs: 0, eenheid: '', beschrijving: ''
             },
+            email: '',
+            uid: '',
         }
 
 
@@ -28,6 +31,8 @@ export default class MijnTuinScreen extends React.Component {
     componentWillMount() {
 
         let self = this;
+
+        
 
         //load data of gebruiker1 from database
         var database = firebase.database().ref('Gebruikers/KiFthOFtGMSQRPRxyeHVNwRx2Ab2/');
@@ -51,6 +56,7 @@ export default class MijnTuinScreen extends React.Component {
 
             })
             .catch(function (error) {
+                console.log(error.message);
                 // Handle Errors here.
                 console.log('couldnt get photo ');
                 // ...
@@ -67,6 +73,7 @@ export default class MijnTuinScreen extends React.Component {
             })
             .catch(function (error) {
                 // Handle Errors here.
+
                 console.log('couldnt get photo ');
                 // ...
             });
@@ -77,22 +84,23 @@ export default class MijnTuinScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <Image style={styles.tuinPic} source={{ uri: this.state.foto }} />
-                
 
 
-                
+
+
 
                 <Text>Mijn producten</Text>
-                <FlatList
-                    data={[{ key: '1', foto: this.state.product.foto, naam: this.state.product.naam, prijs: this.state.product.prijs, eenheid: this.state.product.eenheid, beschrijving: this.state.product.beschrijving }]}
-                    renderItem={({ item }) => { return (<ProductItem naam={item.naam} prijs={item.prijs} eenheid={item.eenheid} beschrijving={item.beschrijving} actie='Aanpassen' foto={item.foto} />); }}
-                />
                 <TouchableOpacity
                     style={style.button_green}
                     onPress={() =>
                         navigate('TuinToevoegen', { gebruikerId: 1 })}
                 ><Text style={style.button_green_text}>Toevoegen</Text>
                 </TouchableOpacity>
+                <FlatList
+                    data={[{ key: '1', foto: this.state.product.foto, naam: this.state.product.naam, prijs: this.state.product.prijs, eenheid: this.state.product.eenheid, beschrijving: this.state.product.beschrijving }]}
+                    renderItem={({ item }) => { return (<ProductItem naam={item.naam} prijs={item.prijs} eenheid={item.eenheid} beschrijving={item.beschrijving} actie='Aanpassen' foto={item.foto} />); }}
+                />
+                
 
 
             </View>
