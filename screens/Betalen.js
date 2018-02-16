@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Image, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import firebase from '../config/firebase';
-import style from'../utils/styles';
+import style from '../utils/styles';
 class FlatListItem extends React.Component {
     render() {
         console.log(this.props.imageUrl);
@@ -27,12 +27,10 @@ export default class BetalenScreen extends React.Component {
 
     }
     static navigationOptions = {
-        title: 'Betalen',
+        title: 'Afrekenen',
     };
 
-    reserveren(){
-        navigate('TuinToevoegen', { gebruikerId: 1 })
-    }
+
 
     //load data of gebruiker1 from database
     componentWillMount() {
@@ -64,7 +62,8 @@ export default class BetalenScreen extends React.Component {
                 <Text>Totaal € {this.state.totaal}</Text>
                 <TouchableOpacity
                     style={style.button_green}
-                    onPress={this.reserveren}
+                    onPress={() =>
+                        navigate('TuinToevoegen', { gebruikerId: 1 })}
                 ><Text style={style.button_green_text}>Artikelen reserveren</Text>
                 </TouchableOpacity>
 
@@ -79,9 +78,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    image: {
-        width: 300,
-        height: 100,
     }
 });

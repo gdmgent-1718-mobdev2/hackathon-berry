@@ -61,7 +61,7 @@ export default class KopenScreen extends React.Component {
 
         let storage = firebase.storage();
 
-        //should get profilePicName from registration, but for now:
+        
         let fruitPicUrl = 'tomaten.jpg';
         var fruitReference = storage.refFromURL('gs://hackathon-berry.appspot.com/images/fruitPics/' + fruitPicUrl + '.jpg');
 

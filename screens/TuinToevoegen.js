@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, Button, TextInput, Picker } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button, TextInput, Picker } from 'react-native';
 
 
 //import * as firebase from 'firebase';
@@ -41,16 +41,7 @@ export default class TuinToevoegenScreen extends React.Component {
     }
 
 
-   /* handleChangeEmail(newEmail) {
-        //moet een geldig email adres zijn
-        this.setState({ email: newEmail })
-    }
 
-    handleChangePassword(newPassword) {
-        //moet 6 tekens bevatten
-        this.setState({ password: newPassword })
-    }
-*/
     toevoegen(event) {
         /*console.log(this.state);
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
@@ -68,7 +59,7 @@ export default class TuinToevoegenScreen extends React.Component {
     render() {
 
         return (
-            <ScrollView contentContainerStyle={styles.container}>
+            <View style={styles.container}>
                 <Text>Voeg een tuin toe</Text>
                 <Text>Periode</Text>
                 <Text>Maandag</Text>
@@ -481,7 +472,7 @@ export default class TuinToevoegenScreen extends React.Component {
                     title='Toevoegen'
                     onPress={this.toevoegen}
                 />
-            </ScrollView >
+            </View >
         );
     }
 
