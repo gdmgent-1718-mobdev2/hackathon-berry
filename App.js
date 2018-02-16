@@ -14,8 +14,8 @@ import PictureScreen from './screens/Picture';
 import TuinToevoegenScreen from './screens/TuinToevoegen';
 import VoegTuinToeScreen from './screens/VoegTuinToe';
 import MijnTuinScreen from './screens/MijnTuin';
-import KopenScreen from './screens/Kopen'
-
+import KopenScreen from './screens/Kopen';
+import BetalenScreen from './screens/Betalen';
 //const met alle routes opgelijst
 const RootStack = StackNavigator(
   {
@@ -48,12 +48,16 @@ const RootStack = StackNavigator(
     },
     Kopen: {
       screen: KopenScreen,
+    },
+    Betalen: {
+      screen: BetalenScreen,
     }
+
 
   },
   {
 
-    initialRouteName: 'Kopen',
+    initialRouteName: 'Betalen',
 
   }
 );

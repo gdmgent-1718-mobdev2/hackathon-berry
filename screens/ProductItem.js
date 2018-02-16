@@ -4,6 +4,12 @@ import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 import style from'../utils/styles';
 
 export default class ProductItem extends React.Component {
+    handle(){
+        if(this.props.actie==='Kopen'){
+            
+        }
+    }
+
     render() {
 
         return (
@@ -14,8 +20,8 @@ export default class ProductItem extends React.Component {
                 <Text>{this.props.beschrijving}</Text>
                 <TouchableOpacity
                     style={style.button_green}
-                    onPress={this.handleSubmit}
-                ><Text style={style.button_green_text}>Kopen </Text>
+                    onPress={this.handle}
+                ><Text style={style.button_green_text}>{this.props.actie} </Text>
                 </TouchableOpacity>
             </View>
         )
