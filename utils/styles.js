@@ -1,13 +1,11 @@
-<<<<<<< HEAD
 /*
 import {Platform, StyleSheet} from 'react-native';
   height: {
     Platform.OS === 'ios' ? 200 : 100,
   }
 */
-=======
+
 import { Platform } from "react-native";
->>>>>>> 631240b5fe9b99d14da98b0c95d32d52919716be
 
 module.exports = {
   container: {
