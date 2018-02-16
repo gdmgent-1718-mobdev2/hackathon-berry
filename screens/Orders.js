@@ -22,6 +22,10 @@ export default class OrdersScreen extends React.Component {
 
   }
 
+  static navigationOptions = {
+    title: 'Mijn Bestellingen',
+  };
+
   componentWillMount(){
     let self = this;
 
