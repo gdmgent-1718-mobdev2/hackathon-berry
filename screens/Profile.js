@@ -127,7 +127,7 @@ export default class ProfileScreen extends React.Component {
               <Text style={styles.profileText}>04 94 12 32 12</Text>
               <TouchableOpacity
                 style={styles.editButton}
-                onPress={this.editProfile}
+                onPress={() => this.props.navigation.navigate('EditProfile')}
                 >
                 <Text style={styles.editButtonText}> Edit </Text>
               </TouchableOpacity>
