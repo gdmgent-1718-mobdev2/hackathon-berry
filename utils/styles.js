@@ -1,3 +1,10 @@
+/*
+import {Platform, StyleSheet} from 'react-native';
+  height: {
+    Platform.OS === 'ios' ? 200 : 100,
+  }
+*/
+
 module.exports = {
   container: {
     flex: 1,

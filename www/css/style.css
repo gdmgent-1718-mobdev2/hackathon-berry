@@ -1,0 +1,293 @@
+/*
+================================
+General styling
+================================
+*/
+.wrapper {
+    width: 960px;
+    min-width: 960px;
+    display: block;
+    margin: 0 auto;
+}
+
+html {
+    background-image: url("../img/background.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hidden {
+    overflow: hidden;
+    position: relative;
+    left: -9999px;
+    height: 0;
+}
+
+/*
+================================
+Header
+================================
+*/
+
+header {
+    background-color: green;
+    color: white;
+    min-width: 960px;
+    width:100%;
+}
+
+h1 {
+    font-size: 50px;
+    width: 190px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+nav {
+    background-color: green;
+    color: white;
+    width: 960px;
+}
+
+nav ul {
+    list-style: none;
+    width: 800px;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    width: 108px;
+    margin: 0 auto;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+/*
+================================
+intro
+================================
+*/
+
+.intro {
+    background-color: lightgreen; 
+    color: white;
+}
+
+.intro h2 {
+    padding-top: 50px;
+    padding-left: 50px;
+    margin: 0;
+    font-size: 35px;
+}
+
+.intro h3 {
+    margin: 0;
+    padding-left: 50px;
+    font-size: 25px;
+}
+
+.intro img {
+    width: 95%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 16px;
+}
+
+/*
+================================
+    About
+================================
+*/
+
+.About {
+    background-color: rgba(255, 255, 255, 0.6);
+    height: 880px;
+}
+
+.About h2 {
+    margin: 0;
+    padding-top: 15px;
+    margin-left: 20px;
+    color: #2255a5;
+}
+
+.About p {
+    display: block;
+    width: 900px;
+    margin: 0 auto 30px auto;
+}
+
+.About img {
+    float: left;
+    width: 65%;
+    margin-left: 2.5%;
+    margin-bottom: 24px;
+    height: 389px;
+}
+
+.data {
+    background-color: #707070;
+    float: left; 
+    width: 30%;
+    margin-left: 2.5%;
+}
+
+.data h2 {
+    height: 0;
+}
+
+.data ul {
+    list-style: none;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.data ul li {
+    padding: 0;
+}
+
+.data ul li h3 {
+    display: block;
+    width: 33%;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.data ul li h4 {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 17px;
+    color: #00B233;
+}
+
+.About--download {
+    width: 100%;
+    float: left;
+}
+
+.About--download h3 {
+    color: #7a5f48;
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 35px;
+}
+
+.About--download ul {
+    width: 90%;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.About--download ul li {
+    display: block;
+    width: 155.517px;
+    float: left;
+    margin: 0 7.5% 0 7.5%;
+
+}
+
+.About--download ul li a img {
+    display: block;
+    height: 60px;
+    width: 155.517px;
+    margin-bottom: 0;
+    margin: 0 auto; !important
+}
+
+/*
+================================
+    About
+================================
+*/
+
+.devTeam {
+    background-color: #4A73B4;
+}
+
+.devTeam h2 {
+    text-align: center;
+    color: white;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 16px;
+}
+
+.devTeam ul {
+    list-style: none;
+    width: 90%;
+    margin: 30px auto 0 auto;
+    padding-bottom: 30px;
+}
+
+.devTeam ul li {
+    width: 31%;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.devTeam ul li h3 {
+    color: gold;
+}
+
+/*
+================================
+    Footer
+================================
+*/
+
+footer {
+    background-color:rgba(112, 112, 112, 0.9);
+    color: white;
+    min-width: 960px;
+    width:100%;
+}
+
+footer h2 {
+    margin-top: 0;
+    text-align: center;
+    padding-top: 16px;
+}
+
+footer ul {
+    list-style: none;
+    width: 95%;
+    margin: 0 auto;
+}
+
+footer ul li {
+    width: 19%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.copyright {
+    margin: 0;
+    padding-bottom: 16px;
+}
+
+.copyright p {
+    width: 100%;
+    text-align: center;
+}
