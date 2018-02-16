@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 /*
 import {Platform, StyleSheet} from 'react-native';
   height: {
     Platform.OS === 'ios' ? 200 : 100,
   }
 */
+=======
+import { Platform } from "react-native";
+>>>>>>> 631240b5fe9b99d14da98b0c95d32d52919716be
 
 module.exports = {
   container: {
@@ -41,7 +45,8 @@ module.exports = {
   },
 
   input_field: {
-    borderBottomWidth: 1,
+    
+    borderBottomWidth: Platform.OS === 'ios' ? 1 : 0,
     borderBottomColor: "#707070",
     backgroundColor: 'rgb(255, 255, 255)',
     height: 30,

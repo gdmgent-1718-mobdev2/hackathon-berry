@@ -80,7 +80,7 @@ setStateFirebaseUid(){
     
     return (
       <View style={style.container}>
-        <Header style={style.header}>
+        <Header>
           <Text style={style.app_title}>Tuinder</Text>
         </Header>
         <Text style={style.title}>Log in</Text>
@@ -94,14 +94,7 @@ setStateFirebaseUid(){
         style={style.button_green}
         onPress={this.handleSubmit}
         >
-          <Text style={style.button_green_text}> Log in </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-        style={[style.button_white, style.button_register]}
-        onPress={() => this.props.navigation.navigate('Register')}
-        >
-          <Text style={style.button_white_text}> Register </Text>
+        <Text style={style.button_green_text}> Log in </Text>
         </TouchableOpacity>
       </View>
     );

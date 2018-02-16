@@ -1,15 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 
 import firebase from '../config/firebase';
 
 export default class Header extends React.Component {
 
-  constructor(){
+  constructor(navigation){
     super();
-
+    this.nav = navigation;
+    console.log(this.nav);
+    
     this.state = {
-      email: '',
+
     }
   }
 
@@ -22,10 +24,9 @@ export default class Header extends React.Component {
       if (user) {
         // User is signed in.
         console.log('user is logged in');
-        console.log('');
         
         
-        self.setHeaderEmail(user.email);
+        self.setHeaderProfilePic();
       } else {
         console.log('user is logged out');
         // No user is signed in.
@@ -33,62 +34,48 @@ export default class Header extends React.Component {
     });
   }
 
-  setHeaderEmail(email){
-    this.setState({email: email});
-  }
+  setHeaderProfilePic(){
 
-  logOut(){
-
-    //log out werk nog niet want header heeft geen toegang tot navigation
-    //ToDo: log out function als aparte screen toevoegen
-
-    let self = this;
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-      console.log('logged out successfully');
-      //self.props.navigation.navigate('Register');
-    }, function(error) {
-      // An error happened.
-      console.log('error logging out');
-      
-    });
   }
 
   render() {
     
     return (
-      <View style={styles.header}>
-        <LoggedInAs email={this.state.email}></LoggedInAs>
+      <View style={styles.headerStyle}>
+      <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.goBack()}>
+      <Text> back </Text>
+      </TouchableOpacity>
+      <Text style={styles.headerTitleStyle}>{this.props.title}</Text>
+      <TouchableOpacity style={styles.profileButton} onPress={() => this.props.navigation.goBack()}>
+      <Text> profile </Text>
+      </TouchableOpacity>
       </View>
     );
   }
 }
 
-class LoggedInAs extends React.Component {
-  render() {
-    if(this.props.email) {
-      return (
-        <View style={styles.loggedInAs}>
-            <Text>Logged in as {this.props.email}</Text>
-        </View>
-      );
-    }else{
-      return null;
-    }
-  }
-}
 
 const styles = StyleSheet.create({
-  header: {
-    flex: 0.1,
+  headerStyle: {
+    backgroundColor: 'green',
+    flex: 3,
     flexDirection: 'row',
-    height: 50,
-    backgroundColor: 'powderblue',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
-  loggedInAs: {
-
-  }
+  profileButton: {
+    flex: 1,
+    width: 30,
+    height: 30,
+    backgroundColor: 'red',
+    marginRight: 20
+  },
+  headerTitleStyle: {
+    flex: 5,
+    fontWeight: 'bold',
+    fontSize: 25,
+    color: 'white',
+    marginLeft: 20
+  },
 
 });
